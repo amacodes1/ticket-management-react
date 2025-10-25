@@ -20,9 +20,9 @@ export default function Header() {
           </div>
           <div>
             <div className="text-lg font-semibold">TicketApp</div>
-            <div className="text-xs text-gray-500 -mt-0.5">
+            {/* <div className="text-xs text-gray-500 -mt-0.5">
               Manage tickets, stay organized
-            </div>
+            </div> */}
           </div>
         </Link>
         <nav className="flex items-center gap-4">
@@ -43,7 +43,7 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <Link to="/auth/login" className="px-3 py-1 rounded border text-sm">
+            <Link to="/auth/login" className="px-3 py-1 bg-[#9B8AFB] text-white rounded text-sm">
               Login
             </Link>
           )}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { mockLogin } from "../../lib/auth";
 
 export default function Login() {
@@ -35,13 +35,22 @@ export default function Login() {
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
         <main className="w-full max-w-md mx-auto">
           <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white">Welcome back</h1>
-            <p className="mt-2 text-base text-gray-600 dark:text-gray-400">Log in to TicketApp</p>
+            <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white">
+              Welcome back
+            </h1>
+            <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
+              Log in to TicketApp
+            </p>
           </div>
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#111827] dark:text-white" htmlFor="email">Email</label>
+                <label
+                  className="block text-sm font-medium text-[#111827] dark:text-white"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
                 <div className="mt-1">
                   <input
                     autoComplete="email"
@@ -57,7 +66,12 @@ export default function Login() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#111827] dark:text-white" htmlFor="password">Password</label>
+                <label
+                  className="block text-sm font-medium text-[#111827] dark:text-white"
+                  htmlFor="password"
+                >
+                  Password
+                </label>
                 <div className="mt-1 relative">
                   <input
                     autoComplete="current-password"
@@ -84,9 +98,15 @@ export default function Login() {
               </button>
             </div>
             <div className="text-sm text-center">
-              <Link className="font-medium text-[#9B8AFB] hover:text-[#9B8AFB]/90" to="/auth/signup">
-                Don't have an account? Sign up
-              </Link>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Don't have an account?{" "}
+                <Link
+                  className="font-medium text-[#9B8AFB] hover:text-[#9B8AFB]/70"
+                  to="/auth/signup"
+                >
+                  Sign up
+                </Link>
+              </p>
             </div>
           </form>
         </main>
