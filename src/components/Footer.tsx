@@ -1,15 +1,13 @@
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t">
-      <div className="mx-auto max-w-container-xl px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-sm text-gray-600">
-          © {new Date().getFullYear()} TicketApp — Built with care
-        </div>
-        <div className="text-sm text-gray-500">
-          Accessibility · Privacy · Terms
-        </div>
+    <footer className="flex flex-col gap-8 px-5 py-10 border-t border-gray-200 dark:border-gray-800">
+      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <a className="text-sm text-[#111827]/60 dark:text-white/60 hover:text-[#9B8AFB] dark:hover:text-[#9B8AFB] transition-colors" href="#">About</a>
+        <a className="text-sm text-[#111827]/60 dark:text-white/60 hover:text-[#9B8AFB] dark:hover:text-[#9B8AFB] transition-colors" href="#">Privacy</a>
+        <a className="text-sm text-[#111827]/60 dark:text-white/60 hover:text-[#9B8AFB] dark:hover:text-[#9B8AFB] transition-colors" href="#">Help</a>
       </div>
+      <p className="text-sm text-center text-[#111827]/50 dark:text-white/50">© {new Date().getFullYear()} TicketApp</p>
     </footer>
   );
 }

@@ -20,11 +20,10 @@ export default function Login() {
     setLoading(true);
     try {
       await mockLogin(email, password);
-      toast.success("You have Logged in successfully");
+      toast.success("Login successful");
       nav("/dashboard");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
-      setErr(e.message || "Login failed");
+    } catch (e: unknown) {
+      setErr(e instanceof Error ? e.message : "Login failed");
       toast.error("Failed to login");
     } finally {
       setLoading(false);
@@ -32,43 +31,66 @@ export default function Login() {
   }
 
   return (
-    <main className="mx-auto max-w-container-xl px-6 py-12">
-      <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow">
-        <h2 className="text-2xl font-semibold">Login</h2>
-        <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-3">
-          <label className="flex flex-col">
-            <span className="text-sm">Email</span>
-            <input
-              aria-label="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="border rounded px-3 py-2 focus:outline-none focus:ring"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="text-sm">Password</span>
-            <input
-              aria-label="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="border rounded px-3 py-2 focus:outline-none focus:ring"
-            />
-          </label>
-          {err && <div className="text-sm text-red-600">{err}</div>}
-          <div className="flex items-center gap-3">
-            <button
-              disabled={loading}
-              className="px-4 py-2 cursor-pointer rounded bg-[#6B46C1] text-white"
-            >
-              {loading ? "Signing in..." : "Sign in"}
-            </button>
-            <Link to="/auth/signup" className="text-sm">
-              Create account
-            </Link>
+    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <main className="w-full max-w-md mx-auto">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white">Welcome back</h1>
+            <p className="mt-2 text-base text-gray-600 dark:text-gray-400">Log in to TicketApp</p>
           </div>
-        </form>
+          <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-[#111827] dark:text-white" htmlFor="email">Email</label>
+                <div className="mt-1">
+                  <input
+                    autoComplete="email"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#111827] dark:text-white" htmlFor="password">Password</label>
+                <div className="mt-1 relative">
+                  <input
+                    autoComplete="current-password"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            {err && <div className="text-sm text-red-600">{err}</div>}
+            <div>
+              <button
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#9B8AFB] hover:bg-[#9B8AFB]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB]"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Signing in..." : "Log in"}
+              </button>
+            </div>
+            <div className="text-sm text-center">
+              <Link className="font-medium text-[#9B8AFB] hover:text-[#9B8AFB]/90" to="/auth/signup">
+                Don't have an account? Sign up
+              </Link>
+            </div>
+          </form>
+        </main>
       </div>
-    </main>
+    </div>
   );
 }

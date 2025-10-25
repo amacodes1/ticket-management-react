@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { mockRegister } from "../../lib/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 export default function Signup() {
@@ -32,43 +32,66 @@ export default function Signup() {
   }
 
   return (
-    <main className="mx-auto max-w-container-xl px-6 py-12">
-      <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow">
-        <h2 className="text-2xl font-semibold">Create an account</h2>
-        <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-3">
-          <input
-            aria-label="name"
-            placeholder="Name (optional)"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="border rounded px-3 py-2"
-          />
-          <input
-            aria-label="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="border rounded px-3 py-2"
-          />
-          <input
-            aria-label="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="border rounded px-3 py-2"
-          />
-          {err && <div className="text-sm text-red-600">{err}</div>}
-          <div className="flex items-center gap-3">
-            <button
-              disabled={loading}
-              className="px-4 py-2 rounded bg-[#6B46C1] text-white"
-            >
-              {loading ? "Creating..." : "Create account"}
-            </button>
+    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
+      <div className="relative flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#111827] overflow-x-hidden p-4">
+        <div className="w-full max-w-md">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white">Create an Account</h1>
+            <p className="mt-2 text-base text-gray-500 dark:text-gray-400">Welcome to TicketApp</p>
           </div>
-        </form>
+          <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            <div className="flex flex-col gap-y-6 rounded-xl bg-white dark:bg-[#111827] p-8 shadow-sm">
+              <label className="flex flex-col">
+                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">Name</p>
+                <input
+                  className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 text-base font-normal text-[#111827] dark:text-white"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </label>
+              <label className="flex flex-col">
+                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">Email</p>
+                <input
+                  className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 text-base font-normal text-[#111827] dark:text-white"
+                  placeholder="Enter your email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+              <label className="flex flex-col">
+                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">Password</p>
+                <div className="relative w-full">
+                  <input
+                    className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 pr-12 text-base font-normal text-[#111827] dark:text-white"
+                    placeholder="Enter your password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+              </label>
+            </div>
+            {err && <div className="text-sm text-red-600">{err}</div>}
+            <div className="flex flex-col items-center gap-4">
+              <button
+                className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-[#9B8AFB] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#9B8AFB]/90 transition-colors"
+                type="submit"
+                disabled={loading}
+              >
+                <span className="truncate">{loading ? "Creating..." : "Register"}</span>
+              </button>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Already have an account?{" "}
+                <Link className="font-medium text-[#9B8AFB] hover:underline" to="/auth/login">
+                  Login
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

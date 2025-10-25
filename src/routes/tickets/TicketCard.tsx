@@ -1,9 +1,16 @@
 import type { Ticket } from "../../types";
+import { Edit, Trash2 } from 'lucide-react';
 
 function statusClass(status: Ticket["status"]) {
-  if (status === "open") return "bg-green-50 text-green-700";
-  if (status === "in_progress") return "bg-amber-50 text-amber-700";
-  return "bg-gray-100 text-gray-700";
+  if (status === "open") return "bg-green-500/10 text-green-600";
+  if (status === "in_progress") return "bg-amber-500/10 text-amber-600";
+  return "bg-blue-500/20 text-blue-600";
+}
+
+function formatStatus(status: Ticket["status"]) {
+  if (status === "in_progress") return "In Progress";
+  if (status === "open") return "Open";
+  return "Closed";
 }
 
 export default function TicketCard({
@@ -16,40 +23,30 @@ export default function TicketCard({
   onDelete: () => void;
 }) {
   return (
-    <article className="bg-white rounded shadow p-4">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="font-semibold">{ticket.title}</h3>
-          <div className="text-sm text-gray-500">{ticket.description}</div>
-        </div>
-        <div className="flex flex-col items-end gap-2">
-          <span
-            className={`px-2 py-1 text-xs rounded ${statusClass(
-              ticket.status
-            )}`}
+    <div className="flex flex-col gap-4 bg-white dark:bg-gray-800/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="flex items-center justify-between">
+        <p className="text-xl font-bold text-[#111827] dark:text-white">{ticket.title}</p>
+        <div className="flex items-center gap-2">
+          <button 
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+            onClick={onEdit}
           >
-            {ticket.status}
-          </span>
-          <div className="flex gap-2">
-            <button
-              onClick={onEdit}
-              className="text-sm px-3 py-1 cursor-pointer border rounded"
-            >
-              Edit
-            </button>
-            <button
-              onClick={() => {
-                if (!confirm("Are you sure you want to delete this ticket?"))
-                  return;
-                onDelete();
-              }}
-              className="text-sm px-3 py-1 cursor-pointer rounded bg-red-50 text-red-600 border"
-            >
-              Delete
-            </button>
-          </div>
+            <Edit className="w-4 h-4" />
+          </button>
+          <button 
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+            onClick={onDelete}
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
         </div>
       </div>
-    </article>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">{ticket.description}</p>
+      <div className="flex items-center justify-between mt-2">
+        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${statusClass(ticket.status)}`}>
+          {formatStatus(ticket.status)}
+        </span>
+      </div>
+    </div>
   );
 }

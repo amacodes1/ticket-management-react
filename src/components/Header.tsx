@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { Ticket } from 'lucide-react';
 import { clearSession, getSession } from "../lib/auth";
 
 export default function Header() {
@@ -14,8 +15,8 @@ export default function Header() {
     <header className="w-full bg-white shadow-sm">
       <div className="mx-auto max-w-container-xl px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#C6B9FF] flex items-center justify-center text-black font-bold">
-            TA
+          <div className="w-10 h-10 rounded-full bg-[#9B8AFB] flex items-center justify-center">
+            <Ticket className="w-6 h-6 text-white" />
           </div>
           <div>
             <div className="text-lg font-semibold">TicketApp</div>
@@ -36,7 +37,7 @@ export default function Header() {
               <div className="text-sm hidden sm:block">{session.email}</div>
               <button
                 onClick={handleLogout}
-                className="px-3 py-1 rounded cursor-pointer bg-black text-white text-sm"
+                className="px-3 py-1 cursor-pointer text-[#9B8AFB] text-sm"
               >
                 Logout
               </button>
