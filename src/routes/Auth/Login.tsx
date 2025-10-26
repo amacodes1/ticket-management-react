@@ -31,7 +31,7 @@ export default function Login() {
   }
 
   return (
-    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
+    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white py-16 mb-20 md:mb-26">
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
         <main className="w-full max-w-md mx-auto">
           <div className="text-center">

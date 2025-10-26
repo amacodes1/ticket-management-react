@@ -34,7 +34,7 @@ export default function ChallengesSection() {
   ];
 
   return (
-    <section className="relative py-16 px-6 md:px-16 lg:px-24 bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
+    <section className="relative py-16 px-6 md:px-16 lg:px-20 bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

@@ -26,7 +26,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative min-h-[70vh] md:h-[520px] flex flex-col justify-center px-6 md:px-16 lg:px-20 z-10">
+      <div className="relative min-h-[95vh] md:h-[520px] flex flex-col justify-center px-6 md:px-16 lg:px-20 z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: -20 }}
@@ -46,7 +46,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="text-sm md:text-xl text-[#111827]/80 dark:text-white/80 text-left leading-relaxed"
+            className="text-sm sm:text-base md:text-xl text-[#111827]/80 dark:text-white/80 text-left tracking-tight sm:tracking-normal leading-relaxed"
           >
             Streamline your customer support experience.{" "}
             <p>

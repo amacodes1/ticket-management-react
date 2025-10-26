@@ -14,8 +14,8 @@ export default function Signup() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErr(null);
-    if (!email || !password) {
-      setErr("Email and password required");
+    if (!name || !email || !password) {
+      setErr("Name, email and password are required");
       return;
     }
     setLoading(true);
@@ -32,80 +32,104 @@ export default function Signup() {
   }
 
   return (
-    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white">
-      <div className="relative flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#111827] overflow-x-hidden p-4">
-        <div className="w-full max-w-md">
+    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white py-16 mb-20 md:mb-26">
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <main className="w-full max-w-md mx-auto">
           <div className="text-center">
             <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white">
               Create an Account
             </h1>
-            <p className="mt-2 text-base text-gray-500 dark:text-gray-400">
+            <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
               Welcome to TicketApp
             </p>
           </div>
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-            <div className="flex flex-col gap-y-6 rounded-xl bg-white dark:bg-[#111827] p-8">
-              <label className="flex flex-col">
-                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">
+            <div className="space-y-4">
+              <div>
+                <label
+                  className="block text-sm font-medium text-[#111827] dark:text-white"
+                  htmlFor="name"
+                >
                   Name
-                </p>
-                <input
-                  className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 text-base font-normal text-[#111827] dark:text-white"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </label>
-              <label className="flex flex-col">
-                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">
-                  Email
-                </p>
-                <input
-                  className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 text-base font-normal text-[#111827] dark:text-white"
-                  placeholder="Enter your email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </label>
-              <label className="flex flex-col">
-                <p className="text-base font-medium pb-2 text-[#111827] dark:text-white">
-                  Password
-                </p>
-                <div className="relative w-full">
+                </label>
+                <div className="mt-1">
                   <input
-                    className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-[#9B8AFB] focus:ring-[#9B8AFB] h-14 placeholder:text-gray-400 p-4 pr-12 text-base font-normal text-[#111827] dark:text-white"
+                    autoComplete="name"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  className="block text-sm font-medium text-[#111827] dark:text-white"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <div className="mt-1">
+                  <input
+                    autoComplete="email"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  className="block text-sm font-medium text-[#111827] dark:text-white"
+                  htmlFor="password"
+                >
+                  Password
+                </label>
+                <div className="mt-1 relative">
+                  <input
+                    autoComplete="new-password"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    id="password"
+                    name="password"
                     placeholder="Enter your password"
+                    required
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-              </label>
+              </div>
             </div>
             {err && <div className="text-sm text-red-600">{err}</div>}
-            <div className="flex flex-col items-center gap-4">
+            <div>
               <button
-                className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-[#9B8AFB] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#9B8AFB]/90 transition-colors"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#9B8AFB] hover:bg-[#9B8AFB]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB]"
                 type="submit"
                 disabled={loading}
               >
-                <span className="truncate">
-                  {loading ? "Creating..." : "Register"}
-                </span>
+                {loading ? "Creating account..." : "Create Account"}
               </button>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Already have an account?{" "}
-                <Link
-                  className="font-medium text-[#9B8AFB] hover:text-[#9B8AFB]/70"
-                  to="/auth/login"
-                >
-                  Login
-                </Link>
-              </p>
             </div>
+            <p className="text-sm text-center text-gray-500 dark:text-gray-400">
+              Already have an account?{" "}
+              <Link
+                className="font-medium text-[#9B8AFB] hover:text-[#9B8AFB]/70"
+                to="/auth/login"
+              >
+                Login
+              </Link>
+            </p>
           </form>
-        </div>
+        </main>
       </div>
     </div>
   );

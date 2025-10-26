@@ -5,7 +5,7 @@ export default function Features() {
     <main className="px-6 md:px-16 lg:px-20 mb-20">
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-4 text-center">
-          <h2 className="text-2xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
             Why Use Ticket App
           </h2>
           <p className="text-sm md:text-lg text-[#111827]/70 dark:text-white/70 max-w-3xl mx-auto">
