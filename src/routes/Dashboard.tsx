@@ -15,10 +15,13 @@ export default function Dashboard() {
     <main className="flex-1 py-20 px-6 md:px-16 lg:px-20 mb-20 md:mb-36">
       <div className="mx-auto max-w-7xl py-12">
         <h1 className="text-xl font-bold tracking-tight text-[#111827] dark:text-white sm:text-2xl">
-          Welcome back, {session?.name || session?.email || "User"}
+          Dashboard
+        </h1>
+        <h1 className="text-base font-base tracking-tight text-[#111827] dark:text-white sm:text-base">
+          Welcome, {session?.name || session?.email || "User"}
         </h1>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col gap-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm">
+          <div className="flex flex-col gap-4 rounded-xl bg-[#9B8AFB]/10 dark:bg-gray-800/50 p-6 shadow-sm">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#9B8AFB]/20">
                 <Ticket className="text-[#9B8AFB] w-6 h-6" />
@@ -27,7 +30,7 @@ export default function Dashboard() {
                 Total Tickets
               </p>
             </div>
-            <p className="text-4xl font-bold tracking-tight text-[#111827] dark:text-white">
+            <p className="text-4xl font-bold tracking-tight text-[#9B8AFB] dark:text-white">
               {total}
             </p>
           </div>
@@ -57,16 +60,16 @@ export default function Dashboard() {
               {inProg}
             </p>
           </div>
-          <div className="flex flex-col gap-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 p-6 shadow-sm">
+          <div className="flex flex-col gap-4 rounded-xl bg-gray-100 dark:bg-gray-900/20 p-6 shadow-sm">
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/20">
-                <CheckCircle className="text-blue-600 w-6 h-6" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-400/20">
+                <CheckCircle className="text-gray-600 w-6 h-6" />
               </div>
               <p className="text-lg font-medium text-[#111827] dark:text-white">
                 Resolved Tickets
               </p>
             </div>
-            <p className="text-4xl font-bold tracking-tight text-blue-600">
+            <p className="text-4xl font-bold tracking-tight text-gray-600">
               {closed}
             </p>
           </div>

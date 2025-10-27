@@ -5,7 +5,7 @@
   --container-max: 1440px;
 }
 
-@layer base {
+
   /* Light mode defaults */
   body {
     @apply bg-linear-to-b from-white to-gray-50 text-gray-900 transition-colors duration-300 ease-in-out;
@@ -19,7 +19,7 @@
   .dark body {
     @apply bg-linear-to-b from-gray-900 to-slate-900 text-gray-100;
   }
-}
+
 
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;

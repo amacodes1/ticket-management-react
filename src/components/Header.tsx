@@ -26,6 +26,7 @@ export default function Header() {
     return ((parts[0][0] ?? "") + (parts[1]?.[0] ?? "")).toUpperCase();
   };
 
+
   return (
     <header className="w-full bg-white dark:bg-[#111827] shadow-sm fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800">
       <div className="mx-auto max-w-container-xl px-6 md:px-16 lg:px-20 py-4 flex items-center justify-between">

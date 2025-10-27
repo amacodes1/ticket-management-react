@@ -4,7 +4,7 @@ import { Edit, Trash2 } from 'lucide-react';
 function statusClass(status: Ticket["status"]) {
   if (status === "open") return "bg-green-500/10 text-green-600";
   if (status === "in_progress") return "bg-amber-500/10 text-amber-600";
-  return "bg-blue-500/20 text-blue-600";
+  return "bg-gray-500/20 text-gray-600";
 }
 
 function formatStatus(status: Ticket["status"]) {
