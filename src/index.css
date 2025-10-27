@@ -6,24 +6,23 @@
   --color-background: #fff;
 }
 
+/* Light mode defaults */
+body {
+  /* @apply bg-linear-to-b from-white to-gray-50 text-gray-900 transition-colors duration-300 ease-in-out; */
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: max(884px, 100dvh);
+}
 
-  /* Light mode defaults */
-  body {
-    /* @apply bg-linear-to-b from-white to-gray-50 text-gray-900 transition-colors duration-300 ease-in-out; */
-    font-family: "Quicksand", sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: max(884px, 100dvh);
-  }
-
-  /* Dark mode overrides */
-  /* .dark body {
+/* Dark mode overrides */
+/* .dark body {
     @apply bg-linear-to-b from-gray-900 to-slate-900 text-gray-100;
   } */
 
-
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 @keyframes fade-in-scale {
@@ -57,4 +56,22 @@
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
+}
+
+/* Toast background and text */
+.custom-toast {
+  background-color: rgba(155, 138, 251, 0.2); /* Matches [#9B8AFB]/20 */
+  color: #9b8afb;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Progress bar (duration line) */
+.custom-progress-bar {
+  background: #9b8afb !important;
+}
+
+/* Checkmark icon for success toasts */
+.Toastify__toast-icon svg {
+  fill: #9b8afb !important;
 }

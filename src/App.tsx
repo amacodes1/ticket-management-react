@@ -55,6 +55,8 @@ function AppContent() {
         draggable
         pauseOnHover
         theme={isDark ? "dark" : "light"}
+        toastClassName="custom-toast"
+        progressClassName="custom-progress-bar"
       />
     </div>
   );
