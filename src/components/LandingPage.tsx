@@ -4,7 +4,7 @@ import ChallengesSection from './ChallengeSection';
 
 export default function Landing() {
   return (
-    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white transition-colors duration-300">
+    <div className=" text-[#111827] dark:text-white transition-colors duration-300">
       <div className="relative w-full max-w-7xl mx-auto">
         <Hero />
         <ChallengesSection />

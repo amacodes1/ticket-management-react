@@ -32,7 +32,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white py-16 mb-20 md:mb-26">
+    <div className="text-[#111827] dark:text-white py-16 mb-20 md:mb-26">
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
         <main className="w-full max-w-md mx-auto">
           <div className="text-center">
@@ -55,7 +55,7 @@ export default function Signup() {
                 <div className="mt-1">
                   <input
                     autoComplete="name"
-                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm text-[#111827] dark:text-white"
                     id="name"
                     name="name"
                     placeholder="Enter your name"
@@ -76,7 +76,7 @@ export default function Signup() {
                 <div className="mt-1">
                   <input
                     autoComplete="email"
-                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm text-[#111827] dark:text-white"
                     id="email"
                     name="email"
                     placeholder="Enter your email"
@@ -97,7 +97,7 @@ export default function Signup() {
                 <div className="mt-1 relative">
                   <input
                     autoComplete="new-password"
-                    className="block w-full px-4 py-3 text-base placeholder-gray-500 bg-white dark:bg-[#111827] border border-gray-300 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm"
+                    className="block w-full px-4 py-3 text-base placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-[#9B8AFB] focus:border-[#9B8AFB] sm:text-sm text-[#111827] dark:text-white"
                     id="password"
                     name="password"
                     placeholder="Enter your password"
@@ -112,7 +112,7 @@ export default function Signup() {
             {err && <div className="text-sm text-red-600">{err}</div>}
             <div>
               <button
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#9B8AFB] hover:bg-[#9B8AFB]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB]"
+                className="w-full flex justify-center py-3 px-4 border border-transparent cursor-pointer rounded-xl shadow-sm text-base font-medium text-white bg-[#9B8AFB] hover:bg-[#9B8AFB]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB]"
                 type="submit"
                 disabled={loading}
               >

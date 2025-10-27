@@ -54,7 +54,7 @@ export default function TicketForm({
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!runValidation()) {
-      toast.error("Please fix the validation errors");
+      toast.error("Please enter the required fields correctly.");
       return;
     }
     onSubmit({
@@ -66,8 +66,8 @@ export default function TicketForm({
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col min-w-40 flex-1">
+    <div className="space-y-2">
+      <div className="flex flex-col min-w-20 flex-1">
         <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="title">Title</label>
         <input 
           className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 p-4 text-base font-normal leading-normal" 
@@ -97,7 +97,7 @@ export default function TicketForm({
             style={{ backgroundColor: statusColors[status] }}
           />
           <select 
-            className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 pl-10 pr-12 text-base font-normal leading-normal" 
+            className="flex w-full min-w-0 flex-1 cursor-pointer resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 pl-10 pr-12 text-base font-normal leading-normal" 
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value as Ticket["status"])}
@@ -112,7 +112,7 @@ export default function TicketForm({
       <div className="flex justify-end pt-8">
         <div className="flex flex-col sm:flex-row flex-1 gap-3 justify-end">
           <button 
-            className="flex min-w-[84px] max-w-full sm:max-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent text-zinc-800 dark:text-zinc-200 text-base font-bold leading-normal tracking-[0.015em] hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors" 
+            className="flex min-w-[84px] max-w-full sm:max-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-zinc-100 text-zinc-800 dark:text-zinc-200 text-base font-bold leading-normal tracking-[0.015em] hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors" 
             type="button"
             onClick={onCancel}
           >

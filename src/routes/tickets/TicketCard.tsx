@@ -28,13 +28,13 @@ export default function TicketCard({
         <p className="text-xl font-bold text-[#111827] dark:text-white">{ticket.title}</p>
         <div className="flex items-center gap-2">
           <button 
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+            className="p-2 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
             onClick={onEdit}
           >
             <Edit className="w-4 h-4" />
           </button>
           <button 
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+            className="p-2 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
             onClick={onDelete}
           >
             <Trash2 className="w-4 h-4" />

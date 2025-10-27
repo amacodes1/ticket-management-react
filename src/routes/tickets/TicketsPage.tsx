@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
-import { Ticket, Search, Plus, AlertTriangle } from 'lucide-react';
+import { Search, Plus, AlertTriangle } from 'lucide-react';
 import {
   loadTickets,
   createTicket,
@@ -65,32 +65,32 @@ export default function TicketsPage() {
   }
 
   return (
-    <div className="bg-white dark:bg-[#111827] text-[#111827] dark:text-white font-display py-16 mb-20 md:mb-26">
+    <div className="bg-white dark:bg-[#111827] text-[#111827] px-6 md:px-16 lg:px-20 dark:text-white font-display py-16 mt-14 mb-20 md:mb-26">
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         <div className="mx-auto max-w-7xl w-full">
-          <header className="flex items-center bg-white dark:bg-[#111827] p-6 justify-between sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+          <header className="flex items-center bg-white dark:bg-[#111827] justify-between sticky top-0 z-10">
             <div className="flex items-center gap-3">
-              <Ticket className="text-[#9B8AFB] w-8 h-8" />
-              <h1 className="text-2xl font-bold leading-tight tracking-[-0.015em]">
-                TicketApp
+              <h1 className="text-xl font-bold leading-tight tracking-[-0.015em]">
+                Manage your Tickets
               </h1>
             </div>
             <button
-              className="bg-[#9B8AFB] text-white font-medium py-3 px-6 rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB] transition-all hidden sm:block"
+              className="bg-[#9B8AFB] text-white cursor-pointer font-medium py-3 px-3 sm:px-5 rounded-full hover:bg-opacity-90 focus:outline-none transition-all flex items-center gap-2"
               onClick={() => {
                 setEditing(null);
                 setShowForm(true);
               }}
             >
-              Create New Ticket
+              <Plus className="w-5 h-5" />
+              <span className="hidden sm:inline">Create New Ticket</span>
             </button>
           </header>
-          <main className="p-6 md:p-8">
-            <div className="mb-8">
+          <main className="mt-8">
+            <div className="mb-8 md:flex md:justify-center">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
-                  className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#9B8AFB] focus:border-transparent transition-shadow text-[#111827] dark:text-white"
+                  className="w-full sm:w-[600px] md:w-[800px] pl-12 pr-4 py-3 items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 transition-shadow text-xs sm:text-base text-[#111827] dark:text-white"
                   placeholder="Search tickets by title, description..."
                   type="text"
                   value={searchTerm}
@@ -98,7 +98,7 @@ export default function TicketsPage() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredTickets.length === 0 ? (
                 <div className="flex flex-col items-center justify-center gap-4 bg-white dark:bg-gray-800/50 rounded-lg p-6 border-2 border-dashed border-gray-300 dark:border-gray-700">
                   <Plus className="text-gray-400 dark:text-gray-500 w-12 h-12" />
@@ -106,7 +106,7 @@ export default function TicketsPage() {
                     You have no more tickets.
                   </p>
                   <button
-                    className="bg-[#9B8AFB] text-white font-medium py-2 px-4 rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9B8AFB] transition-all"
+                    className="bg-[#9B8AFB] text-white font-medium py-2 px-4 cursor-pointer rounded-lg hover:bg-opacity-90 focus:outline-none transition-all"
                     onClick={() => {
                       setEditing(null);
                       setShowForm(true);
@@ -134,10 +134,10 @@ export default function TicketsPage() {
       </div>
 
       {(showForm || editing) && (
-        <div className="fixed inset-0 bg-white/80 dark:bg-[#111827]/80 backdrop-blur-sm flex items-center justify-center min-h-screen p-4 z-50">
-          <div className="w-full max-w-4xl bg-white dark:bg-zinc-900 rounded-xl shadow-2xl p-6 md:p-8 lg:p-12 font-display">
-            <div className="relative flex h-auto w-full flex-col">
-              <h1 className="text-zinc-900 dark:text-white tracking-light text-2xl md:text-3xl font-bold leading-tight text-left pb-6">
+        <div className="fixed inset-0 bg-white/2 dark:bg-[#111827]/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-xl shadow-2xl p-4 md:p-6 font-display max-h-[90vh] overflow-y-auto">
+            <div className="relative flex w-full flex-col">
+              <h1 className="text-zinc-900 dark:text-white tracking-light text-lg md:text-xl font-bold leading-tight text-left pb-4">
                 {editing
                   ? `Edit Ticket #${editing.id.slice(0, 8).toUpperCase()}`
                   : "Create New Ticket"}
@@ -165,7 +165,7 @@ export default function TicketsPage() {
       )}
 
       {deleteConfirm && (
-        <div className="fixed inset-0 bg-gray-900/50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-gray-900/50 flex items-center justify-center p-2 md:p-4 z-50">
           <div className="bg-white dark:bg-[#111827] rounded-xl shadow-lg w-full max-w-sm p-6 flex flex-col items-center text-center animate-fade-in-scale">
             <div className="mb-4">
               <div className="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
@@ -181,13 +181,13 @@ export default function TicketsPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-stretch w-full gap-3">
               <button
-                className="flex-1 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-[#EF4444] text-white text-base font-bold leading-normal tracking-[0.015em]"
+                className="flex-1 flex min-w-[84px] max-w-[480px] py-2 cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-[#EF4444] text-white text-base font-bold leading-normal tracking-[0.015em]"
                 onClick={() => handleDelete(deleteConfirm)}
               >
                 <span className="truncate">Delete</span>
               </button>
               <button
-                className="flex-1 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-gray-200 dark:bg-gray-700 text-[#111827] dark:text-white text-base font-bold leading-normal tracking-[0.015em]"
+                className="flex-1 flex min-w-[84px] max-w-[480px] py-2 cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-gray-200 dark:bg-gray-700 text-[#111827] dark:text-white text-base font-bold leading-normal tracking-[0.015em]"
                 onClick={() => setDeleteConfirm(null)}
               >
                 <span className="truncate">Cancel</span>

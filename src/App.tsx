@@ -2,6 +2,8 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from './components/ThemeProvider';
+import { useTheme } from './hooks/useTheme';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./routes/Auth/Login";
@@ -11,10 +13,11 @@ import Landing from './components/LandingPage';
 import Signup from './routes/Auth/SignUp';
 import TicketsPage from './routes/tickets/TicketsPage';
 
-function App() {
+function AppContent() {
+  const { isDark } = useTheme();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#111827] transition-colors duration-300">
       <Header />
       <div className="flex-1">
         <Routes>
@@ -51,8 +54,17 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        theme={isDark ? "dark" : "light"}
       />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

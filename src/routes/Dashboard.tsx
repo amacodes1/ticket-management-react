@@ -12,9 +12,9 @@ export default function Dashboard() {
   const closed = tickets.filter((t) => t.status === "closed").length;
 
   return (
-    <main className="flex-1 py-16 mb-20 md:mb-26">
-      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight text-[#111827] dark:text-white sm:text-4xl">
+    <main className="flex-1 py-20 px-6 md:px-16 lg:px-20 mb-20 md:mb-36">
+      <div className="mx-auto max-w-7xl py-12">
+        <h1 className="text-xl font-bold tracking-tight text-[#111827] dark:text-white sm:text-2xl">
           Welcome back, {session?.name || session?.email || "User"}
         </h1>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -71,9 +71,9 @@ export default function Dashboard() {
             </p>
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 sm:mt-20">
           <Link
-            className="flex w-full items-center justify-center rounded-lg bg-[#9B8AFB] px-6 py-4 text-lg font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-[#9B8AFB]/90 focus:outline-none focus:ring-2 focus:ring-[#9B8AFB] focus:ring-offset-2"
+            className="flex w-full sm:w-56 items-center justify-center rounded-full bg-[#9B8AFB] px-6 py-3 text-base font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-[#9B8AFB]/90 focus:outline-none"
             to="/tickets"
           >
             Manage Tickets

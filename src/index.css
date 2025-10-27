@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
   --container-max: 1440px;
 }
-body {
-  background: linear-gradient(180deg, #fff 0%, #f8f7fb 100%);
-  color: #0b0b0b;
-  font-family: 'Quicksand', sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: max(884px, 100dvh);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.dark body {
-  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
-  color: #ffffff;
+@layer base {
+  /* Light mode defaults */
+  body {
+    @apply bg-linear-to-b from-white to-gray-50 text-gray-900 transition-colors duration-300 ease-in-out;
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: max(884px, 100dvh);
+  }
+
+  /* Dark mode overrides */
+  .dark body {
+    @apply bg-linear-to-b from-gray-900 to-slate-900 text-gray-100;
+  }
 }
 
 * {
