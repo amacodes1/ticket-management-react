@@ -102,7 +102,7 @@ export default function ChallengesSection() {
             <div className="w-[30%] sm:w-[40%] h-1 bg-[#9B8AFB] dark:bg-[#9B8AFB]/70 mb-6"></div>
 
             {/* Animated CountUp (only runs when inView) */}
-            <h3 className="text-2xl md:text-5xl font-extrabold text-[#9B8AFB] dark:text-[#B8AFFF]">
+            <h3 className="text-2xl md:text-4xl font-extrabold text-[#9B8AFB] dark:text-[#B8AFFF]">
               {inView && (
                 <CountUp
                   start={0}

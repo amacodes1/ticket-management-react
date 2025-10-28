@@ -67,8 +67,24 @@ body {
 }
 
 /* Progress bar (duration line) */
+.Toastify__progress-bar {
+  background-color: #9b8afb !important;
+}
+
+.Toastify__progress-bar--success {
+  background-color: #9b8afb !important;
+}
+
+.Toastify__progress-bar--error {
+  background-color: #ef4444 !important;
+}
+
 .custom-progress-bar {
-  background: #9b8afb !important;
+  background-color: #9b8afb !important;
+}
+
+.custom-progress-bar::before {
+  border-radius: 0 !important;
 }
 
 /* Checkmark icon for success toasts */

@@ -68,7 +68,7 @@ export default function TicketForm({
   return (
     <div className="space-y-2">
       <div className="flex flex-col min-w-20 flex-1">
-        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="title">Title</label>
+        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="title">Title*</label>
         <input 
           className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 p-4 text-base font-normal leading-normal" 
           id="title" 
@@ -79,7 +79,7 @@ export default function TicketForm({
         <p className="text-red-500 text-sm mt-1 h-4">{errors.title || ''}</p>
       </div>
       <div className="flex flex-col min-w-40 flex-1">
-        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="description">Description</label>
+        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="description">Description (optional but recommended)</label>
         <textarea 
           className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 min-h-36 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 p-4 text-base font-normal leading-normal" 
           id="description"
@@ -90,14 +90,14 @@ export default function TicketForm({
         <p className="text-red-500 text-sm mt-1 h-4">{errors.description || ''}</p>
       </div>
       <div className="flex flex-col min-w-40 flex-1 relative">
-        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="status">Status</label>
+        <label className="text-zinc-800 dark:text-zinc-200 text-base font-medium leading-normal pb-2" htmlFor="status">Status*</label>
         <div className="relative flex items-center">
           <span 
             className="absolute left-4 w-2 h-2 rounded-full" 
             style={{ backgroundColor: statusColors[status] }}
           />
           <select 
-            className="flex w-full min-w-0 flex-1 cursor-pointer resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 pl-10 pr-12 text-base font-normal leading-normal" 
+            className="flex w-full min-w-0 flex-1 cursor-pointer resize-none overflow-hidden rounded-lg text-zinc-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-14 pl-8 pr-12 text-base font-normal leading-normal" 
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value as Ticket["status"])}
