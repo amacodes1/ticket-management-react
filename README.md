@@ -5,7 +5,6 @@ A modern, responsive ticket management system built with React, TypeScript, and 
 ## ✨ Features
 
 - **Modern UI/UX**: Clean, responsive design with smooth animations
-- **Dark/Light Theme**: Toggle between themes with persistent preference
 - **User Authentication**: Secure login and registration system
 - **Ticket Management**: Create, view, update, and track support tickets
 - **Dashboard**: Comprehensive overview of ticket statistics and metrics
